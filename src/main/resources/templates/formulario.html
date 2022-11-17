@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario de envio</title>
+    <meta charset="UTF-8">
+   <link th:rel="stylesheet" th:href="@{assets/bootstrap-select-1.13.9/dist/css/bootstrap-select.css}"/>
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+
+
+    
+</head>
+<body style="margin: 0 80px 0 80px;">
+    <center>
+    	<hr>
+        <h1>Solicitud de nueva tarjeta BCP</h1>
+        <hr>
+        <form th:action="@{/formularioRegistro}" th:object="${form}"  method="POST">
+        
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                	
+                    <fieldset cssClass="form-control" id="group1">
+                    	<legend for="group1">Tipo documento:</legend>
+				        <input type="radio" th:field="*{tipo_documento}" value="DNI" name="radio-button" th:text="DNI" class="m-2">
+				        <input type="radio" th:field="*{tipo_documento}" value="Tarjeta_Extranjería" name="radio-button" th:text="Tarjeta_Extranjería" class="m-2">
+				    </fieldset>
+				    <p th:errors="*{tipo_documento}" class="text-danger">.text-danger</p>
+                </div>
+                <div class="form-group col-md-4">
+                     <label for="formGroupExampleInput">N° de documento:</label>
+                     <input type="number" th:field="*{num_documento}" cssClass="form-control" id="formGroupExampleInput" 
+                                 placeholder="Ingrese su número de documento" />
+                     <p th:errors="*{num_documento}" class="text-danger">.text-danger</p>
+                </div>
+                <div class="form-group col-md-4">
+                     <label for="formGroupExampleInput">Apellido paterno:</label>
+                     <input type="text" th:field="*{ape_paterno}" cssClass="form-control" id="formGroupExampleInput" 
+                                 placeholder="Ingrese su apellido paterno" />
+                	 <p th:errors="*{ape_paterno}" class="text-danger">.text-danger</p>
+                </div>
+            </div>
+            <div class="form-row">
+            	<div class="form-group col-md-4">
+                     <label for="formGroupExampleInput">Apellido materno:</label>
+                     <input type="text" th:field="*{ape_materno}" cssClass="form-control" id="formGroupExampleInput" 
+                                 placeholder="Ingrese su apellido materno" />
+               		 <p th:errors="*{ape_materno}" class="text-danger">.text-danger</p>
+                </div>
+                <div class="form-group col-md-4">
+                     <label for="formGroupExampleInput">Nombres:</label>
+                     <input type="text" th:field="*{nombre}" cssClass="form-control" id="formGroupExampleInput" 
+                                 placeholder="Ingrese sus nombres" />
+                     <p th:errors="*{nombre}" class="text-danger">.text-danger</p>
+                </div>
+                <div class="form-group col-md-4">
+                     <label for="formGroupExampleInput">Fecha de nacimiento:</label>
+                     <input type="date" th:field="*{fecha_nacimiento}" cssClass="form-control" id="formGroupExampleInput"/>
+                     <p th:errors="*{fecha_nacimiento}" class="text-danger">.text-danger</p>
+                </div>
+            </div>
+            <div class="form-row">
+            	<div class="form-group col-md-4">
+                    <fieldset th:field="*{sexo}" cssClass="form-control" id="group2">
+                    	<legend for="group2">Sexo:</legend>
+				        <input type="radio" th:field="*{sexo}" value="Masculino" name="radio-button2" th:text="Masculino" class="m-2">
+				        <input type="radio" th:field="*{sexo}"value="Femenino" name="radio-button2" th:text="Femenino" class="m-2">
+				    </fieldset>
+				    <p th:errors="*{sexo}" class="text-danger">.text-danger</p>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="exampleFormControlSelect2">Estado Civil:</label>
+                    <select th:field="*{estado_civil}" cssClass="form-control" id="exampleFormControlSelect2">
+                      <option th:each="elemento3: ${T(com.miempresa.DTO.opciones_estado_civil).values()}"
+                      	th:value="${elemento3}" th:text="${elemento3}" />
+                    </select> 
+            	</div>
+            	<div class="form-group col-md-4">
+                    <label for="exampleFormControlSelect2">Situación laboral:</label>
+                    <select th:field="*{situacion_laboral}" cssClass="form-control" id="exampleFormControlSelect2">
+                      <option th:each="elemento4: ${T(com.miempresa.DTO.opciones_situacion_laboral).values()}"
+                      	th:value="${elemento4}" th:text="${elemento4}" />
+                    </select> 
+            	</div>
+            </div>
+            <div class="form-row">
+            	<div class="form-group col-md-4">
+                     <label for="formGroupExampleInput">RUC del empleador:</label>
+                     <input type="number" th:field="*{ruc}" cssClass="form-control" id="formGroupExampleInput" 
+                                 placeholder="Ingrese su ruc" />
+                	 <p th:errors="*{ruc}" class="text-danger">.text-danger</p>
+                </div>
+                <div class="form-group col-md-4">
+                     <label for="formGroupExampleInput">Terminos y condiciones:</label>
+                     <input type="checkbox" th:field="*{checkbox}" cssClass="form-control" id="formGroupExampleInput" th:text="Acepto"/>
+                	 <p th:errors="*{checkbox}" class="text-danger">.text-danger</p>
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="submit" value="Solicitar nueva tarjeta" class="btn btn-primary" />
+                <a href="/" class="btn btn-primary" >Volver a Index</a>
+            </div>
+
+        </form>
+            </center>
+    </body>
+</html>

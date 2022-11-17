@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario de Recepcion</title>
+    <meta charset="UTF-8">
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>   
+</head>
+<body>
+        <center>
+       <h1>Datos de Registro recibido</h1>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="formGroupExampleInput">Tipo de documento:</label>
+                    <Label th:text="${form.tipo_documento}" class="form-control" id="formGroupExampleInput"></label>
+                </div>
+                <div class="form-group col-md-4">
+                     <label for="formGroupExampleInput">Número de documento:</label>
+                     <Label th:text="${form.num_documento}" class="form-control" id="formGroupExampleInput"></label>
+                </div>
+				<div class="form-group col-md-4">
+					  <label for="formGroupExampleInput">Apellido paterno:</label>
+					  <Label th:text="${form.ape_paterno}" class="form-control" id="formGroupExampleInput"></label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="formGroupExampleInput">Apellido materno:</label>
+                    <Label th:text="${form.ape_materno}" class="form-control" id="formGroupExampleInput"></label>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="formGroupExampleInput">Nombres:</label>
+                    <Label th:text="${form.nombre}" class="form-control" id="formGroupExampleInput"></label>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="formGroupExampleInput">Fecha de nacimiento:</label>
+                    <Label th:text="${form.fecha_nacimiento}" class="form-control" id="formGroupExampleInput"></label>
+                </div>            
+            </div>
+            <div class="form-row">
+            	<div class="form-group col-md-4">
+                    <label for="formGroupExampleInput">Sexo:</label>
+                    <Label th:text="${form.sexo}" class="form-control" id="formGroupExampleInput"></label>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="formGroupExampleInput">Estado Civil:</label>
+                    <Label th:text="${form.estado_civil}" class="form-control" id="formGroupExampleInput"></label>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="formGroupExampleInput">Situación laboral:</label>
+                    <Label th:text="${form.situacion_laboral}" class="form-control" id="formGroupExampleInput"></label>
+                </div>
+            </div>
+            <div class="form-row">
+            	<div class="form-group col-md-4">
+                    <label for="formGroupExampleInput">RUC del empleador:</label>
+                    <Label th:text="${form.ruc}" class="form-control" id="formGroupExampleInput"></label>
+                </div>
+            </div>
+                <br>
+            <div class="form-group">
+                <a href="/formularioRegistro" class="btn btn-primary" >Realizar nuevo Registro</a>
+            </div>
+            </center>
+    </body>
+
+</html>
